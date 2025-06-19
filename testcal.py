@@ -2,11 +2,11 @@ from main import add, subtract, multiply, divide, calculator
 
 
 def test_add():
-    assert add(6 ,7) == 13
+    assert add(6 , 7) == 13
 
 
 def test_sub():
-    assert subtract(7,8) == -1
+    assert subtract(7, 8) == -1
 
 
 def test_multiply():
@@ -14,11 +14,11 @@ def test_multiply():
 
 
 def test_divide():
-    assert divide(6,3) == 2
+    assert divide(6, 3) == 2
 
 
 def test_divide_by_zero():
-    assert divide(5,0) == "Error: Division By zero"
+    assert divide(5, 0) == "Error: Division By zero"
 
 
 def test_invalid_choice(monkeypatch, capsys):
@@ -27,8 +27,8 @@ def test_invalid_choice(monkeypatch, capsys):
     captured = capsys.readouterr()
     assert "Invalid choice." in captured.out
 
-    
-def test_input(monkeypatch, capsys):
+
+def test_invalid_input(monkeypatch, capsys):
     inputs = iter(['1', '5', 'add'])
     monkeypatch.setattr('builtins.input', lambda _: next(inputs))
     calculator()
